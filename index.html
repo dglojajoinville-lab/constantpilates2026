@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constant Pilates - Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a9b8e;
+            --primary-foreground: #ffffff;
+            --background: #ffffff;
+            --foreground: #2d3436;
+            --border: #e9ecef;
+            --ring: #1a9b8e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+                max-width: 1280px;
+            }
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: white;
+            border-bottom: 1px solid #f0f0f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+        }
+
+        .logo img {
+            height: 48px;
+            transition: opacity 0.3s;
+        }
+
+        .logo:hover img {
+            opacity: 0.8;
+        }
+
+        nav {
+            display: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+        }
+
+        nav button {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #4a5568;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        nav button:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.75rem 0;
+            border-top: 1px solid #f0f0f0;
+            background-color: #fafafa;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
+        }
+
+        .mobile-menu button {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4a5568;
+            background: white;
+            border: 1px solid #e9ecef;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu button:hover {
+            color: var(--primary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #16a34a;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #15803d;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f9f8;
+        }
+
+        /* Sections */
+        .hero {
+            background: linear-gradient(135deg, #ffffff, #ffffff, #f0f9f8);
+            padding: 3rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 5rem 0;
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .hero-text {
+            order: 1;
+        }
+
+        @media (min-width: 768px) {
+            .hero-text {
+                order: 0;
+            }
+        }
+
+        .hero-image {
+            order: 0;
+        }
+
+        @media (min-width: 768px) {
+            .hero-image {
+                order: 1;
+            }
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        @media (min-width: 768px) {
+            .hero h2 {
+                font-size: 3rem;
+            }
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        }
+
+        .avatars {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .avatar-group {
+            display: flex;
+            margin-right: -0.5rem;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: bold;
+            color: #1a9b8e;
+            margin-right: -0.5rem;
+        }
+
+        .avatar:nth-child(1) {
+            background-color: #b3e5db;
+        }
+
+        .avatar:nth-child(2) {
+            background-color: #7fd4c4;
+        }
+
+        .avatar:nth-child(3) {
+            background-color: #4bc3ad;
+            color: white;
+        }
+
+        .avatar-text {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .avatar-text strong {
+            color: #1a1a1a;
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            section {
+                padding: 6rem 0;
+            }
+        }
+
+        section h2 {
+            font-size: 1.875rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        @media (min-width: 768px) {
+            section h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        .about {
+            background-color: white;
+        }
+
+        .about-content {
+            max-width: 48rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .benefits {
+            background: linear-gradient(135deg, #f0f9f8, #ffffff);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .benefits-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .benefit-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .benefit-card:hover {
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Services */
+        .services {
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+            transform: translateY(-0.5rem);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 256px;
+            overflow: hidden;
+            background-color: #e9ecef;
+            position: relative;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .service-desc {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Elderly Section */
+        .elderly {
+            background: linear-gradient(135deg, #dbeafe, #ffffff, #dbeafe);
+        }
+
+        .elderly-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .elderly-header h2 {
+            margin: 0;
+            font-size: 2.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .elderly-header h2 {
+                font-size: 3rem;
+            }
+        }
+
+        .elderly-image {
+            max-width: 48rem;
+            margin: 0 auto 3rem;
+            border: 8px solid #3b82f6;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        }
+
+        .elderly-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .elderly-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .elderly-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .elderly-card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .elderly-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .elderly-list {
+            list-style: none;
+        }
+
+        .elderly-list li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .elderly-list span {
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .elderly-list p {
+            color: #666;
+            margin: 0;
+        }
+
+        .elderly-list strong {
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .elderly-why h4 {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .elderly-why p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .elderly-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, #f0f9f8, #ffffff, #f0f9f8);
+            position: relative;
+        }
+
+        .testimonials-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.2;
+            overflow: hidden;
+        }
+
+        .testimonials-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonials-content {
+            position: relative;
+            z-index: 10;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 20px 25px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-avatar {
+            font-size: 3rem;
+        }
+
+        .testimonial-name {
+            font-weight: bold;
+            color: #1a1a1a;
+            font-size: 1.125rem;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 0.25rem;
+            color: #fbbf24;
+        }
+
+        .testimonial-text {
+            font-size: 1.125rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #d1d5db;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--primary);
+            width: 32px;
+        }
+
+        /* Gallery */
+        .gallery {
+            background-color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 256px;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay p {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(to right, #1a9b8e, #0d7d6f);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.125rem;
+            color: #d1fae5;
+            max-width: 48rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .cta .btn {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .cta .btn:hover {
+            background-color: #f0f9f8;
+        }
+
+        /* FAQ */
+        .faq {
+            background-color: #f9fafb;
+        }
+
+        .faq-content {
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 1.125rem;
+            background: none;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .faq-toggle {
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            color: #666;
+            margin-top: 1rem;
+            line-height: 1.8;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            font-weight: bold;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: #d1d5db;
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #4bc3ad;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #0d7d6f;
+        }
+
+        .footer-divider {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Utilities */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-12 {
+            margin-top: 3rem;
+        }
+
+        .space-y-6 > * + * {
+            margin-top: 1.5rem;
+        }
+
+        .space-y-4 > * + * {
+            margin-top: 1rem;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        @media (min-width: 640px) {
+            .sm\:flex-row {
+                flex-direction: row;
+            }
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-12 {
+            margin-bottom: 3rem;
+        }
+
+        .max-w-5xl {
+            max-width: 64rem;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .rounded-2xl {
+            border-radius: 1rem;
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .p-8 {
+            padding: 2rem;
+        }
+
+        .p-6 {
+            padding: 1.5rem;
+        }
+
+        .py-12 {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .shadow-lg {
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .shadow-xl {
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        }
+
+        .hover\:scale-105:hover {
+            transform: scale(1.05);
+        }
+
+        .transition-all {
+            transition: all 0.3s;
+        }
+
+        .transition-colors {
+            transition: color 0.3s;
+        }
+
+        .transition-transform {
+            transition: transform 0.3s;
+        }
+
+        .transition-shadow {
+            transition: box-shadow 0.3s;
+        }
+
+        .opacity-20 {
+            opacity: 0.2;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .inset-0 {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .z-10 {
+            z-index: 10;
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+
+        .object-cover {
+            object-fit: cover;
+        }
+
+        .leading-relaxed {
+            line-height: 1.625;
+        }
+
+        .leading-tight {
+            line-height: 1.25;
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+        }
+
+        .text-4xl {
+            font-size: 2.25rem;
+        }
+
+        .text-5xl {
+            font-size: 3rem;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .text-gray-900 {
+            color: #111827;
+        }
+
+        .text-gray-700 {
+            color: #374151;
+        }
+
+        .text-gray-600 {
+            color: #4b5563;
+        }
+
+        .text-gray-300 {
+            color: #d1d5db;
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .bg-gray-50 {
+            background-color: #f9fafb;
+        }
+
+        .bg-teal-50 {
+            background-color: #f0f9f8;
+        }
+
+        .bg-blue-50 {
+            background-color: #eff6ff;
+        }
+
+        .bg-teal-600 {
+            background-color: var(--primary);
+        }
+
+        .bg-blue-600 {
+            background-color: #2563eb;
+        }
+
+        .border-b {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .border-t {
+            border-top: 1px solid #1f2937;
+        }
+
+        .border-gray-100 {
+            border-color: #f3f4f6;
+        }
+
+        .border-gray-700 {
+            border-color: #374151;
+        }
+
+        .h-12 {
+            height: 3rem;
+        }
+
+        .h-64 {
+            height: 16rem;
+        }
+
+        .h-10 {
+            height: 2.5rem;
+        }
+
+        .h-3 {
+            height: 0.75rem;
+        }
+
+        .w-10 {
+            width: 2.5rem;
+        }
+
+        .w-3 {
+            width: 0.75rem;
+        }
+
+        .w-8 {
+            width: 2rem;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .min-h-screen {
+            min-height: 100vh;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .md\:grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .lg\:grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        .gap-6 {
+            gap: 1.5rem;
+        }
+
+        .gap-8 {
+            gap: 2rem;
+        }
+
+        .gap-12 {
+            gap: 3rem;
+        }
+
+        .order-1 {
+            order: 1;
+        }
+
+        .order-2 {
+            order: 2;
+        }
+
+        @media (min-width: 768px) {
+            .md\:order-1 {
+                order: 1;
+            }
+
+            .md\:order-2 {
+                order: 2;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .md\:hidden {
+                display: none;
+            }
+
+            .md\:flex {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root" class="min-h-screen bg-white">
+        <!-- Header/Navigation -->
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <a href="#" class="logo">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-logo_59aea0d2.png" alt="Constant Pilates Logo">
+                    </a>
+
+                    <!-- Desktop Menu -->
+                    <nav>
+                        <button onclick="scrollToSection('services')">SERVIÇOS</button>
+                        <button onclick="scrollToSection('benefits')">AVALIAÇÃO</button>
+                        <button onclick="scrollToSection('gallery')">GALERIA</button>
+                        <button onclick="scrollToSection('faq')">PERGUNTAS FREQUENTES</button>
+                        <button onclick="scrollToSection('contact')">CONTATO</button>
+                    </nav>
+
+                    <a href="https://wa.me/5547999470601?text=Olá! Gostaria de agendar minha aula experimental de Pilates na Constant." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        Agendar
+                    </a>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="mobile-menu">
+                    <button onclick="scrollToSection('services')">SERVIÇOS</button>
+                    <button onclick="scrollToSection('benefits')">AVALIAÇÃO</button>
+                    <button onclick="scrollToSection('gallery')">GALERIA</button>
+                    <button onclick="scrollToSection('faq')">PERGUNTAS FREQUENTES</button>
+                    <button onclick="scrollToSection('contact')">CONTATO</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <!-- Texto à esquerda -->
+                    <div class="hero-text space-y-6">
+                        <div class="space-y-4">
+                            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                                Transforme sua saúde, seu corpo e sua qualidade de vida
+                            </h2>
+                            <p class="text-lg text-gray-600 leading-relaxed">
+                                Bem-vindo ao Espaço Constant, um lugar dedicado à saúde integral. Oferecemos pilates com fisioterapeutas experientes, além de atendimentos especializados em osteopatia, liberação miofascial, fisioterapia especializada em idosos e fisioterapia pélvica. Nossa equipe de profissionais oferece um atendimento humanizado e acolhedor, com bom humor e atenção individualizada. Montamos um programa personalizado ao seu nível, objetivos e necessidades específicas. Trabalhamos para que você se sinta em casa, evolua com segurança e conquiste seu objetivo.. Localizado na Rua Benjamin Constant em Joinville – SC, somos referência em bem-estar integral há anos, transformando vidas através do movimento e com cuidado profissional.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://wa.me/5547999470601?text=Olá! Gostaria de agendar minha aula experimental de Pilates na Constant." target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">
+                                Agende sua Aula Experimental
+                            </a>
+                        </div>
+
+                        <div class="flex items-center gap-4 pt-4">
+                            <div class="flex" style="margin-right: -0.5rem;">
+                                <div class="avatar">👩</div>
+                                <div class="avatar">👨</div>
+                                <div class="avatar">👩</div>
+                            </div>
+                            <p class="avatar-text">
+                                <strong>100+ alunos satisfeitos</strong> já transformaram suas vidas
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Imagem à direita -->
+                    <div class="hero-image relative">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-hero-7H3mGyAinJYamh4ZhLc5Uf.webp" alt="Pilates Reformer" class="w-full h-auto object-cover">
+                            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(26, 155, 142, 0.2), transparent);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Nós -->
+        <section class="about">
+            <div class="container">
+                <div class="about-content space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Bem-estar que vai além do exercício</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        O Espaço Constant é uma clínica voltada à saúde, reabilitação e desempenho físico, com foco no bem-estar integral. Nossa equipe de profissionais especializados oferece um atendimento humanizado e acolhedor, com bom humor e atenção individualizada.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Estamos bem localizados em Joinville, e trabalhamos para que cada paciente se sinta em casa, evolua com segurança e conquiste sua melhor versão.
+                    </p>
+                    <div class="pt-4">
+                        <a href="https://wa.me/5547999470601?text=Olá! Gostaria de agendar minha aula experimental de Pilates na Constant." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            Conheça nosso estúdio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefícios -->
+        <section id="benefits" class="benefits">
+            <div class="container">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Por que treinar no Espaço Constant?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👥</div>
+                        <p>Acompanhamento profissional e técnico</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">❤️</div>
+                        <p>Atendimento humanizado e acolhedor</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <p>Resultados mensuráveis na sua funcionalidade</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⭐</div>
+                        <p>Métodos que favorecem bem-estar físico e mental</p>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="https://wa.me/5547999470601?text=Olá! Gostaria de agendar minha aula experimental de Pilates na Constant." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        Comece hoje mesmo
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serviços -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Nossos Serviços</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-hero-7H3mGyAinJYamh4ZhLc5Uf.webp" alt="Pilates">
+                            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-title">
+                                <span>🧘‍♀️</span>
+                                <h3 style="margin: 0;">Pilates</h3>
+                            </div>
+                            <p class="service-desc">Aulas individuais ou em grupos reduzidos com fisioterapeutas qualificados. Melhora força, flexibilidade e postura.</p>
+                            <a href="https://wa.me/5547999470601?text=Olá! Gostaria de agendar minha aula experimental de Pilates na Constant." target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full justify-center">
+                                Saiba Mais
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-osteopatia-mVKXAJZZFck8CBjtNZtfj2.webp" alt="Osteopatia">
+                            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-title">
+                                <span>🤝</span>
+                                <h3 style="margin: 0;">Osteopatia</h3>
+                            </div>
+                            <p class="service-desc">Terapia manual que equilibra o corpo como um todo. Trata causas de disfunções e restaura a capacidade natural de cura.</p>
+                            <a href="https://wa.me/5547999470601?text=Olá! Gostaria de agendar minha aula experimental de Pilates na Constant." target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full justify-center">
+                                Saiba Mais
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-fisioterapia-TfpRAb6YhNV8fzocpRdiHw.webp" alt="Fisioterapia">
+                            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-title">
+                                <span>💪</span>
+                                <h3 style="margin: 0;">Fisioterapia</h3>
+                            </div>
+                            <p class="service-desc">Reabilitação de lesões ortopédicas e pós-operatórios. Foco em melhora funcional e redução da dor.</p>
+                            <a href="https://wa.me/5547999470601?text=Olá! Gostaria de agendar minha aula experimental de Pilates na Constant." target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full justify-center">
+                                Saiba Mais
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção TERCEIRA IDADE -->
+        <section id="elderly" class="elderly">
+            <div class="container">
+                <div class="max-w-5xl mx-auto">
+                    <div class="elderly-header">
+                        <span style="font-size: 3rem;">👴</span>
+                        <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Pilates para Idosos</h2>
+                    </div>
+
+                    <p class="text-lg text-gray-600 text-center mb-12 leading-relaxed">
+                        O Idosos merecem atenção especial. O Pilates é uma prática segura e eficaz que melhora a qualidade de vida, independência funcional e bem-estar geral dos idosos.
+                    </p>
+
+                    <div class="elderly-image">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-elderly-hero-825xdN7EA3hVGMLvKeLn4L.webp" alt="Idosa praticando Pilates">
+                    </div>
+
+                    <div class="elderly-grid">
+                        <!-- Benefícios -->
+                        <div class="elderly-card">
+                            <h3>Benefícios para Idosos</h3>
+                            <ul class="elderly-list">
+                                <li>
+                                    <span>✓</span>
+                                    <div>
+                                        <strong>Prevenção de quedas</strong>
+                                        <p>Melhor equilíbrio e propriocepção, redução de riscos de acidentes</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>✓</span>
+                                    <div>
+                                        <strong>Melhora da contração muscular</strong>
+                                        <p>Fortalece músculos essenciais para atividades do dia a dia</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>✓</span>
+                                    <div>
+                                        <strong>Melhora da flexibilidade</strong>
+                                        <p>Aumenta amplitude de movimento e reduz rigidez articular</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>✓</span>
+                                    <div>
+                                        <strong>Alívio de dores crônicas</strong>
+                                        <p>Reduz dores nas costas, articulações e problemas posturais</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>✓</span>
+                                    <div>
+                                        <strong>Melhora Funcional</strong>
+                                        <p>Mantém capacidade de realizar atividades cotidianas com autonomia</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>✓</span>
+                                    <div>
+                                        <strong>Bem-estar mental</strong>
+                                        <p>Pode reduzir quadros de ansiedade, depressão e melhorar a qualidade de vida no geral.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Por que Pilates é Ideal -->
+                        <div class="elderly-card">
+                            <h3>Por que Pilates é Ideal para Idosos?</h3>
+                            <div class="elderly-why">
+                                <h4>✓ Exercício de baixo impacto</h4>
+                                <p>Não sobrecarrega as articulações, sendo seguro, mesmo para quem tem osteoporose ou artrite.</p>
+
+                                <h4>✓ Adaptável a qualquer nível</h4>
+                                <p>Pode ser praticado por idosos sedentários ou ativos.</p>
+
+                                <h4>✓ Acompanhamento profissional</h4>
+                                <p>Nossos fisioterapeutas monitoram cada movimento para garantir segurança e efetividade.</p>
+
+                                <h4>✓ Ambiente acolhedor</h4>
+                                <p>Estúdio seguro, com equipamentos possíveis de adaptar e equipe com experiência no atendimento aos idosos.</p>
+
+                                <p style="margin-top: 1.5rem; font-size: 1.125rem;">💡 Nunca é tarde para começar! Pessoas que praticam pilates regularmente vivem com mais independência e qualidade de vida.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="elderly-cta">
+                        <a href="https://wa.me/5547999470601?text=Olá! Gostaria de agendar minha aula experimental de Pilates na Constant." target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">
+                            Agende sua Aula Experimental Agora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section class="testimonials">
+            <div class="testimonials-bg">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-testimonial-bg-4pkd82tzpBmiohC8K9xXfQ.webp" alt="background">
+            </div>
+            <div class="container">
+                <div class="testimonials-content">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">O que nossos alunos dizem</h2>
+                    <div class="testimonial-card" id="testimonialCard">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" id="testimonialAvatar">👩‍🦰</div>
+                            <div>
+                                <div class="testimonial-name" id="testimonialName">Maria Silva</div>
+                                <div class="testimonial-stars">
+                                    <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text" id="testimonialText">O Pilates no Constant me ajudou a recuperar minha mobilidade e a viver sem dores. Profissionais competentes e ambiente acolhedor!</p>
+                        <div class="testimonial-dots" id="testimonialDots"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeria de Fotos -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Conheça nosso estúdio</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-pilates-group-XEdGQ7qHE7zhqhRJ3A8kec.webp" alt="Aula em grupo de Pilates">
+                        <div class="gallery-overlay">
+                            <p>Aula em grupo de Pilates</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-hero-7H3mGyAinJYamh4ZhLc5Uf.webp" alt="Pilates Reformer">
+                        <div class="gallery-overlay">
+                            <p>Pilates Reformer</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-osteopatia-mVKXAJZZFck8CBjtNZtfj2.webp" alt="Atendimento de Osteopatia">
+                        <div class="gallery-overlay">
+                            <p>Atendimento de Osteopatia</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-fisioterapia-TfpRAb6YhNV8fzocpRdiHw.webp" alt="Sessão de Fisioterapia">
+                        <div class="gallery-overlay">
+                            <p>Sessão de Fisioterapia</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-pilates-group-XEdGQ7qHE7zhqhRJ3A8kec.webp" alt="Estúdio Constant">
+                        <div class="gallery-overlay">
+                            <p>Estúdio Constant</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663391153135/bMv2NPYAuY4H27DXg4oGxc/constant-hero-7H3mGyAinJYamh4ZhLc5Uf.webp" alt="Ambiente do estúdio">
+                        <div class="gallery-overlay">
+                            <p>Ambiente do estúdio</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="https://wa.me/5547999470601?text=Olá! Gostaria de agendar minha aula experimental de Pilates na Constant." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        Visite-nos em Pessoa
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container text-center space-y-6">
+                <h2>Pronto para transformar sua vida?</h2>
+                <p>Agende sua aula experimental agora mesmo e descubra como o Pilates pode mudar sua saúde, seu corpo e sua qualidade de vida.</p>
+                <a href="https://wa.me/5547999470601?text=Olá! Gostaria de agendar minha aula experimental de Pilates na Constant." target="_blank" rel="noopener noreferrer" class="btn" style="background-color: white; color: var(--primary); font-size: 1.125rem; padding: 1rem 2rem;">
+                    Agende sua Aula Experimental
+                </a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Perguntas Frequentes</h2>
+                <div class="faq-content" id="faqContainer"></div>
+                <div class="text-center mt-12">
+                    <a href="https://wa.me/5547999470601?text=Olá! Gostaria de agendar minha aula experimental de Pilates na Constant." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        Tire suas dúvidas conosco
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Contato -->
+                    <div class="footer-section">
+                        <h3>Contato</h3>
+                        <ul>
+                            <li>
+                                <span>📞</span>
+                                <a href="tel:+5547999470601">(47) 99947-0601</a>
+                            </li>
+                            <li>
+                                <span>📞</span>
+                                <a href="tel:+554730277217">(47) 3027-7217</a>
+                            </li>
+                            <li>
+                                <span>✉️</span>
+                                <a href="mailto:pilates.constant@gmail.com">pilates.constant@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Endereço -->
+                    <div class="footer-section">
+                        <h3>Localização</h3>
+                        <div style="display: flex; gap: 0.75rem; color: #d1d5db;">
+                            <span style="flex-shrink: 0; margin-top: 0.25rem;">📍</span>
+                            <div>
+                                <p>Rua Benjamin Constant, 543 - Sala 2</p>
+                                <p>América • Joinville – SC • 89204-360</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Redes Sociais -->
+                    <div class="footer-section">
+                        <h3>Siga-nos</h3>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/constantpilates/" target="_blank" rel="noopener noreferrer" class="social-icon">f</a>
+                            <a href="https://www.instagram.com/espaco.constant" target="_blank" rel="noopener noreferrer" class="social-icon">📷</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-divider">
+                    <p>&copy; 2026 Espaço Constant Pilates. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Testimonials Data
+        const testimonials = [
+            {
+                name: "Maria Silva",
+                text: "O Pilates no Constant me ajudou a recuperar minha mobilidade e a viver sem dores. Profissionais competentes e ambiente acolhedor!",
+                image: "👩‍🦰",
+            },
+            {
+                name: "João Santos",
+                text: "Excelente atendimento! A equipe é muito atenciosa e os resultados aparecem rapidamente. Recomendo para todos!",
+                image: "👨‍💼",
+            },
+            {
+                name: "Ana Costa",
+                text: "Melhorei muito minha postura e força. O ambiente é acolhedor e os profissionais realmente entendem do assunto.",
+                image: "👩‍🦱",
+            },
+        ];
+
+        // FAQ Data
+        const faqs = [
+            {
+                q: "Preciso já ter feito Pilates para começar?",
+                a: "Não. O Pilates é indicado tanto para iniciantes quanto para pessoas que já praticam atividade física. As aulas são adaptadas ao seu nível, condição física e objetivos específicos.",
+            },
+            {
+                q: "As aulas são em grupo ou individuais?",
+                a: "Trabalhamos com aulas individuais ou em grupos reduzidos (até três pessoas), sempre com acompanhamento próximo do profissional, garantindo segurança e melhor aproveitamento dos exercícios.",
+            },
+            {
+                q: "Pilates ajuda em dores na coluna?",
+                a: "Sim. O pilates é amplamente indicado para dores na coluna lombar ou cervical, e também desordens posturais, pois fortalece a musculatura profunda e melhora a mobilidade e o alinhamento corporal.",
+            },
+            {
+                q: "Quanto tempo demora para ver resultados?",
+                a: "Os resultados variam conforme a frequência e o objetivo, mas muitos alunos relatam melhora da dor, postura e mobilidade já nas primeiras semanas.",
+            },
+            {
+                q: "Posso fazer Pilates mesmo tendo alguma lesão?",
+                a: "Sim, desde que seja feita uma avaliação prévia. O Pilates é muito utilizado em processos de reabilitação e pode ser adaptado conforme a sua condição.",
+            },
+            {
+                q: "O estúdio atende gestantes?",
+                a: "Sim, com liberação médica e avaliação prévia com o profissional responsável. O pilates durante a gravidez é excelente para fortalecer e melhorar a postura, preparando o corpo para o parto, sempre com segurança para a gestante e o bebê.",
+            },
+            {
+                q: "Pilates é indicado para a terceira idade?",
+                a: "Absolutamente! O Pilates é ideal para idosos pois melhora o equilíbrio, a flexibilidade, a força e a mobilidade. Ajuda a prevenir quedas, mantém a independência funcional e contribui significativamente para a qualidade de vida.",
+            },
+            {
+                q: "Tenho dor nas costas. Como o Pilates pode ajudar?",
+                a: "O Pilates fortalece os músculos profundos das costas e do core, melhorando a estabilidade da coluna. Isso reduz a pressão nos discos intervertebrais e alivia a dor. A maioria dos alunos com dor nas costas relata melhora significativa.",
+            },
+            {
+                q: "Tenho dor no joelho. Posso fazer Pilates?",
+                a: "Sim, com avaliação prévia. O Pilates é excelente para fortalecer os músculos ao redor do joelho, melhorar o alinhamento e reduzir a dor. Os exercícios são adaptados para proteger a articulação.",
+            },
+            {
+                q: "Tenho dor na perna, o pilates pode ajudar?",
+                a: "Muitos alunos com dores nas pernas (ciática, tensão muscular, etc.) apresentam diminuição de problemas com a prática regular de atividade física.",
+            },
+            {
+                q: "Quantas aulas por semana são recomendadas?",
+                a: "O mais comum é de 2 a 3 aulas por semana, mas isso pode variar conforme avaliação individual e objetivos específicos. Alguns alunos começam com 1 aula por semana e aumentam conforme evoluem.",
+            },
+            {
+                q: "Como agendar minha aula experimental?",
+                a: "Você pode entrar em contato conosco pelo WhatsApp (47) 99947-0601, enviar um email para pilates.constant@gmail.com ou preencher o formulário de contato em nossa página.",
+            },
+        ];
+
+        let activeTestimonial = 0;
+
+        // Initialize Testimonials
+        function initTestimonials() {
+            renderTestimonial();
+            renderTestimonialDots();
+        }
+
+        function renderTestimonial() {
+            const testimonial = testimonials[activeTestimonial];
+            document.getElementById('testimonialAvatar').textContent = testimonial.image;
+            document.getElementById('testimonialName').textContent = testimonial.name;
+            document.getElementById('testimonialText').textContent = testimonial.text;
+        }
+
+        function renderTestimonialDots() {
+            const dotsContainer = document.getElementById('testimonialDots');
+            dotsContainer.innerHTML = '';
+            testimonials.forEach((_, idx) => {
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (idx === activeTestimonial ? ' active' : '');
+                dot.onclick = () => {
+                    activeTestimonial = idx;
+                    renderTestimonial();
+                    renderTestimonialDots();
+                };
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        // Initialize FAQ
+        function initFAQ() {
+            const faqContainer = document.getElementById('faqContainer');
+            faqContainer.innerHTML = '';
+            faqs.forEach((faq, idx) => {
+                const item = document.createElement('div');
+                item.className = 'faq-item';
+                item.innerHTML = `
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        ${faq.q}
+                        <span class="faq-toggle">▼</span>
+                    </button>
+                    <div class="faq-answer">${faq.a}</div>
+                `;
+                faqContainer.appendChild(item);
+            });
+        }
+
+        function toggleFAQ(button) {
+            const item = button.closest('.faq-item');
+            item.classList.toggle('open');
+        }
+
+        // Scroll to Section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initTestimonials();
+            initFAQ();
+        });
+    </script>
+</body>
+</html>
